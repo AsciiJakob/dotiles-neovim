@@ -1,14 +1,29 @@
 return {
-  -- the colorscheme should be available when starting Neovim
   {
-	    "folke/tokyonight.nvim",
-	    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-	    priority = 1000, -- make sure to load this before all the other start plugins
-	    config = function()
-	      -- load the colorscheme here
-	      vim.cmd([[colorscheme tokyonight]])
-	    end,
+      "ellisonleao/gruvbox.nvim",
+      name = "gruvbox",
+      priority = 1000,
+      config = function()
+	   vim.cmd([[colorscheme gruvbox]])
+      end,
   },
+  -- {
+  --  "catppuccin/nvim",
+  --  name = "catppuccin",
+  --  priority = 1000,
+  --  config = function()
+  --       vim.cmd([[colorscheme catppuccin-macchiato]])
+  --  end,
+  -- },
+  -- {
+  --    "folke/tokyonight.nvim",
+  --    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --    priority = 1000, -- make sure to load this before all the other start plugins
+  --    config = function()
+  --      -- load the colorscheme here
+  --      vim.cmd([[colorscheme tokyonight]])
+  --    end,
+  -- },
   {
 	  'stevearc/oil.nvim',
 	  ---@module 'oil'
@@ -44,4 +59,15 @@ return {
     ---@type ibl.config
     opts = {},
   },
+  {
+    "lewis6991/gitsigns.nvim",
+  },
+  {
+    "tpope/vim-sleuth",
+  },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {},
+  },
+  
 }
