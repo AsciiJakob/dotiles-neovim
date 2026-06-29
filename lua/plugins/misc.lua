@@ -49,7 +49,15 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         -- optional but recommended
-        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+		{
+		  'nvim-telescope/telescope-fzf-native.nvim',
+		    build = function()
+              if vim.fn.has("win32") == 1 then
+			    return "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install"
+			  end
+			  return "make"
+            end,
+		}
     }
   },
   {
@@ -68,6 +76,5 @@ return {
   {
     "sphamba/smear-cursor.nvim",
     opts = {},
-  },
-  
+  }
 }

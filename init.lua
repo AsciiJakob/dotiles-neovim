@@ -4,4 +4,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set("n", "<C-s>", "<Esc>:w<CR>", { desc = "Save file" })
 
 require("config.lazy")
+require("config.lsp")
+require("config.oil")
 
