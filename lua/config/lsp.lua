@@ -50,3 +50,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+
+vim.diagnostic.config({
+  virtual_text = { prefix = "●" },
+  signs = true,
+  update_in_insert = false, -- avoid noise while typing
+  float = { border = "rounded", source = "always" },
+})
