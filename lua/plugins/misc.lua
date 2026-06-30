@@ -66,7 +66,12 @@ return {
 		main = "ibl",
 		---@module "ibl"
 		---@type ibl.config
-		opts = {},
+		opts = {
+			indent = {
+				char = "│", -- spaces
+				tab_char = "»", -- tabs
+			},
+		},
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -89,7 +94,7 @@ return {
 		"brevin33/raddebugger.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			'nvim-telescope/telescope.nvim',
+			"nvim-telescope/telescope.nvim",
 		},
 	},
 }
