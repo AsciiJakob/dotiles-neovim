@@ -78,6 +78,7 @@ return {
 	},
 	{
 		"nmac427/guess-indent.nvim",
+		opts = {},
 	},
 	{
 		"sphamba/smear-cursor.nvim",
