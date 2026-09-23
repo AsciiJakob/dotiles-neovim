@@ -11,6 +11,6 @@ require("config.lazy")
 require("config.treesitter")
 require("config.lsp")
 require("config.oil")
-require("config.raddbg")
+-- require("config.raddbg")
 
 require("config.custom_commands")
