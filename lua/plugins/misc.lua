@@ -91,13 +91,13 @@ return {
 			--suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
 		},
 	},
-	{
-		"brevin33/raddebugger.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-	},
+	-- {
+	-- 	"brevin33/raddebugger.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 	},
+	-- },
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
@@ -105,6 +105,32 @@ return {
 			require("luasnip.loaders.from_lua").lazy_load({
 				paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
 			})
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		build = ":TSUpdate",
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {
+			enable_autocmd = true,
+		},
+		config = function(_, opts)
+			require("ts_context_commentstring").setup(opts)
+
+			local get_option = vim.filetype.get_option
+
+			vim.filetype.get_option = function(filetype, option)
+				if option == "commentstring" then
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+						or get_option(filetype, option)
+				end
+
+				return get_option(filetype, option)
+			end
 		end,
 	},
 }
